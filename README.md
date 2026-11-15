@@ -12,3 +12,4 @@
 └── docker-compose.yml
 docker-compose.yml
 Element / Matrix
+docker compose up -d,
