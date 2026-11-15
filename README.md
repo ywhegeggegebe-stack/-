@@ -9,6 +9,27 @@ function getStreak(chatId) {
 function saveStreak(chatId, streak) {
   localStorage.setItem(`streak_${chatId}`, JSON.stringify(streak));
 }
+// --- Магазин NFT (можно расширять) ---
+const NFT_SHOP = [
+  { id: 'star_bronze', name: 'Бронзовая звезда', price: 10, emoji: '⭐' },
+  { id: 'fire_small',  name: 'Малый огонь',    price: 50, emoji: '🔥' },
+  { id: 'crown_silver', name: 'Серебряная корона', price: 200, emoji: '👑' },
+  { id: 'diamond_blue', name: 'Голубой алмаз', price: 1000, emoji: '💎' },
+  { id: 'galaxy_gold',  name: 'Золотая галактика', price: 5000, emoji: '🌌' }
+];
+
+// --- Хранилище (пока в localStorage) ---
+function getNFTData(userId) {
+  const data = localStorage.getItem(`nft_${userId}`);
+  return data ? JSON.parse(data) : { streak: 0, owned: [], equipped: null };
+}
+
+function saveNFTData(userId, data) {
+  localStorage.setItem(`nft_${userId}`, JSON.stringify(data));
+}
+
+
+
 
 // --- 2. Логика обновления огонька ---
 function updateStreak(chatId) {
